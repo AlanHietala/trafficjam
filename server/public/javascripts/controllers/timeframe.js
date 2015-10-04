@@ -6,6 +6,7 @@ angular.module('trafficjam')
         var map = MapService.getMap();
         var timeframeEnabled = false;
         var dateChanged = true;
+        $scope.toggleClass = 'btn-default';
         $scope.startDate = new Date('2014/06/01 00:00:00');
         $scope.endDate = new Date('2014/12/31 23:59:00');
         $scope.$watch('startDate', function(newVal) {
@@ -17,11 +18,13 @@ angular.module('trafficjam')
         $scope.toggleTimeframe = function () {
             if(timeframeEnabled) {
                 clearMapData();
+                $scope.toggleClass = 'btn-default';
                 timeframeEnabled = false;
             } else {
                 if(dateChanged) {
                     TrafficjamAPI.getHeatmap($scope.startDate, $scope.endDate)
                         .then(function (data) {
+                            $scope.toggleClass = 'btn-success';
                             var cleanedData = stripNulls(data.data);
                             generateMapData(cleanedData);
                             timeframeEnabled = true;
