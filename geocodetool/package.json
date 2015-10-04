@@ -1,0 +1,10 @@
+{
+  "name": "athenamobile",
+  "version": "0.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "mongodb": "^2.0.45",
+    "node-geocoder": "~3.4.0",
+    "simple-rate-limiter": "^0.2.3"
+  }
+}

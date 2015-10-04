@@ -1,7 +1,22 @@
 doctype html
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        link(rel='stylesheet', href='/javascripts/vendor/bootstrap/dist/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/javascripts/vendor/bootstrap/dist/css/bootstrap-theme.min.css')
+        link(rel='stylesheet', href='/javascripts/vendor/angular-bootstrap/ui-bootstrap-csp.css')
+        link(rel='stylesheet', href='/javascripts/vendor/angular-bootstrap-colorpicker/css/colorpicker.min.css')
+        script(type='text/javascript', src='//maps.googleapis.com/maps/api/js?key=AIzaSyCBX-Bc48_O8pELdf97foOn_6QKKhlyGN0&libraries=visualization')
+        script(type='text/javascript', src='/javascripts/vendor/angular/angular.min.js')
+        script(type='text/javascript', src='/javascripts/vendor/angular-bootstrap/ui-bootstrap-tpls.min.js')
+        script(type='text/javascript', src='/javascripts/vendor/angular-route/angular-route.min.js')
+        script(type='text/javascript', src='/javascripts/vendor/angular-bootstrap-colorpicker/js/bootstrap-colorpicker-module.min.js')
+        script(type='text/javascript', src='/javascripts/vendor/angular-animate/angular-animate.min.js')
+        script(type='text/javascript', src='javascripts/app.js' )
+        script(type='text/javascript', src='javascripts/controllers/map.js')
+        script(type='text/javascript', src='javascripts/controllers/timeframe.js')
+        script(type='text/javascript', src='javascripts/services/trafficjam-api.js')
+        script(type='text/javascript', src='javascripts/services/map-service.js')
+    body(ng-app='trafficjam')
+        block content

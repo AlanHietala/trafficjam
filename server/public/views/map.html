@@ -1,0 +1,46 @@
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+
+        <a class="navbar-brand" href="#">ATV (Aggregated Traffic Volume)</a>
+
+
+    </div>
+</nav>
+<div class="row">
+    <div class="col-md-8"><div id="map"></div></div>
+
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+            <button class="btn btn-default" ng-click="addTimeframe()">Add Timeframe</button>
+            </div>
+        </div>
+        <div class="panel panel-default" ng-repeat="timeframe in timeframes" ng-controller="TimeframeCtrl">
+            <p class="panel-body">
+                <label for="">start date</label>
+                        <p class="input-group">
+
+                            <input type="text" class="form-control" datepicker-popup ng-model="startDate" is-open="status.startOpened"  datepicker-options="dateOptions"  ng-required="true" close-text="Close" />
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="openStart($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+                        </p>
+                <label for="">end date</label>
+                        <p class="input-group">
+
+                            <input type="text" class="form-control" datepicker-popup ng-model="endDate" is-open="status.endOpened"  datepicker-options="dateOptions"  ng-required="true" close-text="Close" />
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="openEnd($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+                        </p>
+                    <p class="input-group">
+                    <input colorpicker type="text" ng-model="color" /> <span class="color-display" style="background-color:{{color}}"></span>
+                    </p>
+
+                <p class="input-group">
+                <button class="btn btn-default" ng-click="toggleTimeframe()">Toggle Timeframe</button>
+                </p>
+            </p>
+        </div>
+    </div>
+</div>

@@ -1,3 +1,5 @@
 .idea
-server/node_modules
+vendor
+DataSets
+node_modules
 
