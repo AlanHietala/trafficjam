@@ -31,6 +31,7 @@ run the geocoder, it will target high average flow intersections first. you can 
 from the server directory run:
 
 > npm install
+
 > bower install
 
 ## run the app 
