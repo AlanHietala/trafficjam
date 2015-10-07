@@ -9,9 +9,11 @@ Fun visualization for the 24h traffic flow data for the city of toronto. This is
 Install MongoDB  
 Install NodeJS
 
+untar the data in the datasets/volume directory
+
 Import data in the DataSets/volume directory into mongodb.
 
-> mongoimport -d trafficjam -c traffic_volume --type csv --file <filename>.csv --headerline
+> mongoimport -d trafficjam -c traffic_volume --type csv --file filename.csv --headerline
 
 ##Set up the geocoder
 
