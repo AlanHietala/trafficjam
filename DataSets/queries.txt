@@ -1,0 +1,71 @@
+* Index Artery Code
+* Index TIMECOUNT
+
+Queries
+==========
+
+// Idenfity High Impact arteries for a time period
+// For a daterange sum of vehicles on a stretch represented by the ARTERYCODE
+
+
+var forRecordsMatchingDateRange = {
+		$match: { TIMECOUNT: {$gte: new Date('2010/01/01 00:00:00'), $lte:new Date('2014/12/31 23:59:00')}}
+}
+
+var sumCountsGroupedByArteryCodeAndFirstLocation =  {
+	$group: {_id: '$ARTERYCODE', volumeSum: {$sum:'$Count'}, arteryCount: {$sum: 1}, name:{$first:'$LOCATION'}}
+}
+
+var normalizeCountsForNumberOfMeasurements = {
+	$project: {name: 1, normalizedSum: { $divide: ['$volumeSum', '$arteryCount']}}
+}
+var sortedInDecendingOrder = {
+	$sort : {normalizedSum: -1}
+}
+
+var sortedInAscendingOrder = {
+	$sort : {normalizedSum: 1}
+}
+
+var greaterThan10NormalizedCount = {
+	$match : {normalizedSum: {$gte: 3}}
+}
+var countRows =  {
+			$group:{_id:null, theCount : {$sum: 1}}
+		}
+
+var aggregateList = [forRecordsMatchingDateRange, 
+					sumCountsGroupedByArteryCodeAndFirstLocation, 
+					normalizeCountsForNumberOfMeasurements,
+					greaterThan10NormalizedCount,
+					sortedInDecendingOrder,
+					countRows];
+
+db.traffic_volume.aggregate(aggregateList);
+
+// Pull historical data for high Impact arteries and get historical data over time (year to year, month to month)
+
+// associate demographic data with an arterycode
+
+// busted sensors
+
+// normalize names to format <crossstreet 1> and <crossstreet 2> update records with normalized name
+
+// for each unique name geocode
+
+var groupByLocation =  {
+	$group: {_id: '$LOCATION'}
+}
+var countBy =  {
+	 $group: { _id: null, count: { $sum: 1 } }
+}
+
+var uniqueLocationAggregateList = [
+	forRecordsMatchingDateRange,
+	groupByLocation,
+	countBy
+];
+
+
+
+db.traffic_volume.aggregate(uniqueLocationAggregateList);

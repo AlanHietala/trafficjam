@@ -5,7 +5,7 @@ var MongoClient = require('mongodb').MongoClient
 var geocoderProvider = 'google';
 var httpAdapter = 'https';
 var extra = {
-	apiKey: 'AIzaSyCBX-Bc48_O8pELdf97foOn_6QKKhlyGN0', // for Mapquest, OpenCage, Google Premier
+	apiKey: '<apikeyhere>', // for Mapquest, OpenCage, Google Premier
 	formatter: null         // 'gpx', 'string', ...
 };
 
