@@ -6,14 +6,26 @@ Fun visualization for the 24h traffic flow data for the city of toronto. This is
 
 ##Installation
 
-Install MongoDB  
-Install NodeJS
+Install MongoDB http://mongodb.org 
+
+Install NodeJS http://nodejs.org
+
+Install bower 
+
+> sudo npm install -g bower
+
+## Import Data
 
 untar the data in the datasets/volume directory
 
 Import data in the DataSets/volume directory into mongodb.
 
 > mongoimport -d trafficjam -c traffic_volume --type csv --file filename.csv --headerline
+
+##set up your indexes
+
+> mongo ./DataSets/load-indexes.js
+
 
 ##Set up the geocoder
 
@@ -28,7 +40,9 @@ update the script to use your google api key WARNING: you can burn through 2500 
 
 run the geocoder, it will target high average flow intersections first. you can play with the filter on normalized count to control how many records you get for geocoding.
 
-## Install the app in /server
+> node app.js 
+
+## Install the app dependncies in /server
 
 from the server directory run:
 

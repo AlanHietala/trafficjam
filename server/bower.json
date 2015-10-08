@@ -14,9 +14,7 @@
     "bootstrap": "~3.3.5",
     "angular": "~1.4.7",
     "angular-route": "~1.4.7",
-    "angular-animate": "~1.4.7"
-  },
-  "devDependencies": {
+    "angular-animate": "~1.4.7",
     "angular-bootstrap": "~0.13.4",
     "angular-bootstrap-colorpicker": "~3.0.19"
   }
